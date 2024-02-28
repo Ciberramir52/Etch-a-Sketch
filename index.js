@@ -3,6 +3,10 @@ const buttonGrid = document.querySelector("#button-grid");
 
 buttonGrid.addEventListener('click', () => changeGrid());
 
+const colorSquare = () => {
+    return "#" + Math.floor(Math.random()*16777215).toString(16)
+}
+
 const createGrid = (side) => {
     for (let i = 0; i < side; i++){
         const column = document.createElement("div");
@@ -11,7 +15,7 @@ const createGrid = (side) => {
         for (let j = 0; j < side; j++) {
             const row = document.createElement("div");
             row.className = "row";
-            row.addEventListener('mouseover', e => e.target.style.backgroundColor = 'red');
+            row.addEventListener('mouseover', e => e.target.style.backgroundColor = colorSquare());
             column.appendChild(row);
         }
         containerDiv.appendChild(column);
